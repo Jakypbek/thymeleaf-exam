@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>companies</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>company name</th>
+        <th>located country</th>
+        <th>courses</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cp : ${companyList}">
+        <td th:text="${cp.id}"></td>
+        <td th:text="${cp.companyName}"></td>
+        <td th:text="${cp.locatedCountry}"></td>
+        <td>
+            <a th:href="@{'/api/courses/find/by/' + ${cp.id}}">
+                <button>courses</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/api/companies/edit/' + ${cp.id}}">
+                <button>edit</button>
+            </a>
+            <a th:href="@{'/api/companies/delete/' + ${cp.id}}">
+                <button>delete</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:href="@{/api/companies/save}">
+        <button>
+            + new Company
+        </button>
+    </a>
+</div>
+
+<div>
+    <a th:href="@{/}">
+        <button>
+            GO to the main page
+        </button>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>students of the group</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>first name</th>
+        <th>email</th>
+        <th>last name</th>
+        <th>study format</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="st : ${students}">
+        <td th:text="${st.id}"></td>
+        <td th:text="${st.firstName}"></td>
+        <td th:text="${st.email}"></td>
+        <td th:text="${st.lastName}"></td>
+        <td th:text="${st.studyFormat}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:href="@{'/api/students/save/' + ${groupId}}">
+        <button>save</button>
+    </a>
+</div>
+
+<br><br>
+
+<div>
+    <a th:href="@{/api/groups}">
+        <button>go back</button>
+    </a>
+</div>
+</body>
+</html>

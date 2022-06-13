@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>save new course</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/api/companies/save}"
+      method="post"
+      th:object="${emptyCompany}">
+
+    <label for="companyName">company name</label>
+    <input id="companyName" th:field="${emptyCompany.companyName}" placeholder="example">
+    <br><br>
+
+    <label for="locatedCountry">located country</label>
+    <input id="locatedCountry" th:field="${emptyCompany.locatedCountry}" placeholder="example">
+    <br><br>
+
+    <button type="submit">save</button>
+</form>
+
+<div>
+    <a th:href="@{/api/companies}">
+        <button>go back</button>
+    </a>
+</div>
+</body>
+</html>

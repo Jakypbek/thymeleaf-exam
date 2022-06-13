@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>teachers</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>first name</th>
+        <th>eamil</th>
+        <th>last name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${teacherList}">
+        <td th:text="${t.id}"></td>
+        <td th:text="${t.firstName}"></td>
+        <td th:text="${t.email}"></td>
+        <td th:text="${t.lastName}"></td>
+        <td>
+            <a th:href="@{'/api/companies/find/by/' + ${t.id}}">
+                <button>courses</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/api/teachers/edit/' + ${t.id}}">
+                <button>edit</button>
+            </a>
+            <a th:href="@{'/api/teachers/delete/' + ${t.id}}">
+                <button>delete</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a th:href="@{/api/teachers/save}">
+        <button>
+            + new teacher
+        </button>
+    </a>
+</div>
+
+<div>
+    <a th:href="@{/}">
+        <button>
+            GO to the main page
+        </button>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>save new teacher</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{'/api/teachers/edit/' + ${teacherId}}"
+      method="post"
+      th:object="${teacher}">
+
+    <label for="firstName">first Name</label>
+    <input id="firstName" th:field="${teacher.firstName}" placeholder="example">
+    <br><br>
+
+    <label for="email">email</label>
+    <input id="email" th:field="${teacher.email}" placeholder="example">
+    <br><br>
+
+    <label for="lastName">date of finish</label>
+    <input id="lastName" th:field="${teacher.lastName}" placeholder="example">
+    <br><br>
+
+    <button type="submit">edit</button>
+</form>
+
+<div>
+    <a th:href="@{/api/teachers}">
+        <button>go back</button>
+    </a>
+</div>
+</body>
+</html>>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>save new course</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/api/courses/save}"
+      method="post"
+      th:object="${emptyCompany}"
+      th:object="${emptyCourse}">
+
+    <label for="courseName">course name</label>
+    <input id="courseName" th:field="${emptyCourse.courseName}" placeholder="qexample">
+    <br><br>
+
+    <label for="duration">duration</label>
+    <input id="duration" th:field="${emptyCourse.duration}" placeholder="example">
+    <br><br>
+
+    <h3>you can also save it with a company</h3>
+
+    <label for="companyName">company name</label>
+    <input id="companyName" th:field="${emptyCompany.companyName}" placeholder="example">
+    <br><br>
+
+    <label for="locatedCountry">located country</label>
+    <input id="locatedCountry" th:field="${emptyCompany.locatedCountry}" placeholder="example">
+    <br><br>
+
+    <button type="submit">save</button>
+</form>
+
+<div>
+    <a th:href="@{/api/courses}">
+        <button>go back</button>
+    </a>
+</div>
+</body>
+</html>

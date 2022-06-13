@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Company courses</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>course name</th>
+        <th>duration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cour : ${courses}">
+        <td th:text="${cour.id}"></td>
+        <td th:text="${cour.courseName}"></td>
+        <td th:text="${cour.duration}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:href="@{'/api/courses/save/' + ${companyId}}">
+        <button>save</button>
+    </a>
+</div>
+
+<br><br>
+
+<div>
+    <a th:href="@{/api/companies}">
+        <button>go back</button>
+    </a>
+</div>
+</body>
+</html>

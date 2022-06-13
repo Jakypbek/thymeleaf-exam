@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>groups of courses</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>groupName</th>
+        <th>date of start</th>
+        <th>date of finish</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="gr : ${groups}">
+        <td th:text="${gr.id}"></td>
+        <td th:text="${gr.groupName}"></td>
+        <td th:text="${gr.dateOfStart}"></td>
+        <td th:text="${gr.dateOfFinish}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:href="@{'/api/groups/save/' + ${courseId}}">
+        <button>save</button>
+    </a>
+</div>
+
+<br><br>
+
+<div>
+    <a th:href="@{/api/courses}">
+        <button>go back</button>
+    </a>
+</div>
+</body>
+</html>

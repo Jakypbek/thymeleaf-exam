@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>groups</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>group name</th>
+        <th>date of start</th>
+        <th>date of finish</th>
+        <th>courses</th>
+        <th>students</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="g : ${groupList}">
+        <td th:text="${g.id}"></td>
+        <td th:text="${g.groupName}"></td>
+        <td th:text="${g.dateOfStart}"></td>
+        <td th:text="${g.dateOfFinish}"></td>
+        <td>
+            <a th:href="@{'/api/courses/find/by/gr/' + ${g.id}}">
+                <button>courses</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/api/students/find/by/' + ${g.id}}">
+                <button>students</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/api/groups/edit/' + ${g.id}}">
+                <button>edit</button>
+            </a>
+            <a th:href="@{'/api/groups/delete/' + ${g.id}}">
+                <button>delete</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a th:href="@{/api/groups/save}">
+        <button>
+            + new group
+        </button>
+    </a>
+</div>
+
+<div>
+    <a th:href="@{/}">
+        <button>
+            GO to the main page
+        </button>
+    </a>
+</div>
+</body>
+</html>
